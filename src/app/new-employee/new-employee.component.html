@@ -1,0 +1,31 @@
+<h1>Create new employee!</h1>
+<table>
+  <tr>
+    <td>
+      Name:
+    </td>
+    <td>
+      <input [(ngModel)]="name" placeholder="Name">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Age:
+    </td>
+    <td>
+      <input [(ngModel)]="age" type="number" placeholder="Age" min="0" max="150">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Position:
+    </td>
+    <td>
+      <select name="position" [(ngModel)]="position">
+        <option *ngFor="let jobPosition of AvailPosition" [value]="jobPosition">{{ jobPosition }}</option>
+      </select>
+    </td>
+  </tr>
+</table>
+
+<button class="button" (click)="createNew()" [disabled]="!canSend" [className]="canSend ? 'green' : 'red'">Submit</button>
