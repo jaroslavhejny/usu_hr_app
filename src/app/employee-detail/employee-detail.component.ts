@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {Employee} from '../employee';
+import {EmployeeService} from '../employee.service';
 
 @Component({
   selector: 'app-employee-detail',
@@ -8,9 +9,18 @@ import {Employee} from '../employee';
 })
 export class EmployeeDetailComponent implements OnInit {
   @Input() employee: Employee;
+  private get removeEmployeeApi() : string {
+    return `/api/employees/${this.employee['id']}`;
+  };
+  constructor(private employeeService: EmployeeService) {
+  }
 
-  constructor() {
-    this.employee = this.employee;
+  deleteEmployee(): void {
+    const conf = confirm(`Do you really want to delete ${this.employee['name']}, ${this.employee['position']}?`)
+    if (conf) {
+      this.employeeService.removeEmployee(this.removeEmployeeApi)
+        .subscribe(response => console.log(response));
+    }
   }
 
   ngOnInit() {

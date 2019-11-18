@@ -38,6 +38,13 @@ export class EmployeeService {
         catchError(this.handleError<Employee[]>('createEmployee', []))
       );
   }
+  removeEmployee(url): Observable<any> {
+    return this.http.delete<Employee[]>(this.baseUrl + url, this.httpOptions)
+      .pipe(
+        tap(_ => this.log('deleted')),
+        catchError(this.handleError<Employee[]>('deleteEmployee', []))
+      );
+  }
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
