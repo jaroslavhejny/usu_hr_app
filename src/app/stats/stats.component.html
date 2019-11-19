@@ -7,7 +7,7 @@
     </tr>
     </thead>
     <tr *ngFor="let stat of statistics">
-      <td *ngFor="let key of statKeys">{{ stat[key] }}</td>
+      <td *ngFor="let key of statKeys">{{ decorateValue(stat[key]) }}</td>
     </tr>
   </table>
 

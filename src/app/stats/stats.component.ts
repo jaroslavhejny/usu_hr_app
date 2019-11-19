@@ -12,7 +12,7 @@ export class StatsComponent implements OnInit {
     age: '/employees/statistics_by_age',
     position: '/employees/statistics_by_position'
   };
-  statistics = {};
+  statistics: any[] = [];
   type: string = 'age';
 
   constructor(private employeeService: EmployeeService) { }
@@ -44,5 +44,20 @@ export class StatsComponent implements OnInit {
       this.type = 'age';
     }
     this.getStats(this.type)
+  }
+
+  decorateValue(value) {
+    if (typeof value === 'number'){
+      return Math.round(value)
+    }
+
+    else if (typeof value=== 'string'){
+      return value.replace(/_/, " ");
+    }
+
+    else {
+      return value
+    }
+
   }
 }

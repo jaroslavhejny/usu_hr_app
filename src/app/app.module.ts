@@ -10,6 +10,7 @@ import { NewEmployeeComponent } from './new-employee/new-employee.component';
 import {FormsModule} from '@angular/forms';
 import { MessagesComponent } from './messages/messages.component';
 import { StatsComponent } from './stats/stats.component';
+import { GraphComponent } from './graph/graph.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { StatsComponent } from './stats/stats.component';
     EmployeeDetailComponent,
     NewEmployeeComponent,
     MessagesComponent,
-    StatsComponent
+    StatsComponent,
+    GraphComponent
   ],
   imports: [
     BrowserModule,

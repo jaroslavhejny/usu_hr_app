@@ -12,10 +12,10 @@ export class MessagesComponent implements OnInit {
   ngOnInit() {
   }
 
-  get msgList () {
+  get msgList ():string[] {
     let list = this.messageService.messages;
     if (list.length > 3){
-      return list.shift();
+      return list.splice(-3);
     }
 
     else {
