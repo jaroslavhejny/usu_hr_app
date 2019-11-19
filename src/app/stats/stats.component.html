@@ -1,0 +1,15 @@
+<div class="jh-center">
+  <h1>Statistics by {{ type }}</h1>
+  <table class="table text-center w-50">
+    <thead *ngIf="statKeys">
+    <tr>
+      <td *ngFor="let key of statKeys">{{ key }}</td>
+    </tr>
+    </thead>
+    <tr *ngFor="let stat of statistics">
+      <td *ngFor="let key of statKeys">{{ stat[key] }}</td>
+    </tr>
+  </table>
+
+  <button class="btn btn-primary" (click)="toggleType()">Toggle stats</button>
+</div>

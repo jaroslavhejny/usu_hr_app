@@ -30,15 +30,23 @@ export class EmployeeService {
   getEmployees(url): Observable<Employee[]> {
     return this.http.get<Employee[]>(this.baseUrl + url)
       .pipe(
-        tap(_ => this.log('got employees')),
+        tap(() => this.log('got employees')),
         catchError(this.handleError<Employee[]>('getEmployee', []))
       );
+  };
+
+  getStatistics(url):Observable<any> {
+    return this.http.get<any>(this.baseUrl + url)
+      .pipe(
+        tap(() => this.log('Fetch statistics')),
+        catchError(this.handleError<Employee[]>('getStats', []))
+      )
   };
 
   createEmployee(url, employee): Observable<Employee[]> {
     return this.http.post<Employee[]>(this.baseUrl + url, employee, this.httpOptions)
       .pipe(
-        tap(_ => this.log(`${employee['position']}, ${employee['name']}, created`)),
+        tap(() => this.log(`${employee['position']}, ${employee['name']}, created`)),
         catchError(this.handleError<Employee[]>('createEmployee', []))
       );
   };

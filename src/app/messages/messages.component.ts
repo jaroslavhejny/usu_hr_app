@@ -7,7 +7,6 @@ import { MessageService } from '../message.service';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
-
   constructor(public messageService: MessageService) { }
 
   ngOnInit() {
@@ -24,4 +23,7 @@ export class MessagesComponent implements OnInit {
     }
   }
 
+  removeMsg(index){
+    this.msgList.splice(index, 1);
+  }
 }

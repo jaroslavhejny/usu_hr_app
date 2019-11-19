@@ -1,3 +1,5 @@
-<div *ngIf="msgList.length" class="msgList">
-  <p class="msg msg-warning" *ngFor="let msg of msgList"> {{ msg }} </p>
+<div *ngIf="msgList.length > 0" class="msgList">
+  <p class="msg msg-warning" *ngFor="let msg of msgList">
+    {{ msg }} <button (click)="removeMsg(msgList.indexOf(msg))">&times;</button>
+  </p>
 </div>

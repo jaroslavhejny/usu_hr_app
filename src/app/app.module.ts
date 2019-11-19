@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NewEmployeeComponent } from './new-employee/new-employee.component';
 import {FormsModule} from '@angular/forms';
 import { MessagesComponent } from './messages/messages.component';
+import { StatsComponent } from './stats/stats.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MessagesComponent } from './messages/messages.component';
     EmployeesComponent,
     EmployeeDetailComponent,
     NewEmployeeComponent,
-    MessagesComponent
+    MessagesComponent,
+    StatsComponent
   ],
   imports: [
     BrowserModule,
