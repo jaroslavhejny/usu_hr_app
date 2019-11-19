@@ -1,4 +1,3 @@
-<div class="jh-center">
   <h1>Statistics by {{ type }}</h1>
   <table class="table text-center w-50">
     <thead *ngIf="statKeys">
@@ -12,4 +11,4 @@
   </table>
 
   <button class="btn btn-primary" (click)="toggleType()">Toggle stats</button>
-</div>
+<app-graph [values]="statistics"></app-graph>
