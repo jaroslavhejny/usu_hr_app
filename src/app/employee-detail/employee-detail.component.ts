@@ -9,8 +9,8 @@ import {EmployeeService} from '../employee.service';
 })
 export class EmployeeDetailComponent implements OnInit {
   @Input() employee: Employee;
-  private get removeEmployeeApi() : string {
-    return `/api/employees/${this.employee['id']}`;
+  private get removeEmployeeApi(): string {
+    return `/employees/${this.employee['id']}`;
   };
   constructor(private employeeService: EmployeeService) {
   }

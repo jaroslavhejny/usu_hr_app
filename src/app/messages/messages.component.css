@@ -1,0 +1,24 @@
+.msgList {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.msg {
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.msg-info {
+  background-color: rgb(144, 238, 144);
+}
+
+.msg-warning {
+  background-color: rgb(245, 185, 185);
+}
+
+p {
+  margin-bottom: 0.2em;
+}

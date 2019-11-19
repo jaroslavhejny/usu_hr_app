@@ -8,13 +8,15 @@ import { EmployeeDetailComponent } from './employee-detail/employee-detail.compo
 import { AppRoutingModule } from './app-routing.module';
 import { NewEmployeeComponent } from './new-employee/new-employee.component';
 import {FormsModule} from '@angular/forms';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeesComponent,
     EmployeeDetailComponent,
-    NewEmployeeComponent
+    NewEmployeeComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

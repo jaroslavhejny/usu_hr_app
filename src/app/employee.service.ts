@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, EventEmitter} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 import {Observable, of} from 'rxjs';
@@ -12,9 +12,8 @@ import {MessageService} from './message.service';
   providedIn: 'root'
 })
 export class EmployeeService {
-  private baseUrl = 'http://ec2-18-224-0-3.us-east-2.compute.amazonaws.com';
-
-
+  private baseUrl = 'http://ec2-18-224-0-3.us-east-2.compute.amazonaws.com/api';
+  dispatcher: EventEmitter<any> = new EventEmitter();
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'})
   };
@@ -24,43 +23,49 @@ export class EmployeeService {
     private messageService: MessageService) {
   }
 
+  getEmitter() {
+    return this.dispatcher;
+  };
+
   getEmployees(url): Observable<Employee[]> {
     return this.http.get<Employee[]>(this.baseUrl + url)
       .pipe(
-        tap(_ => this.log('fetched')),
+        tap(_ => this.log('got employees')),
         catchError(this.handleError<Employee[]>('getEmployee', []))
       );
-  }
+  };
+
   createEmployee(url, employee): Observable<Employee[]> {
     return this.http.post<Employee[]>(this.baseUrl + url, employee, this.httpOptions)
       .pipe(
-        tap(_ => this.log('fetched')),
+        tap(_ => this.log(`${employee['position']}, ${employee['name']}, created`)),
         catchError(this.handleError<Employee[]>('createEmployee', []))
       );
-  }
+  };
+
   removeEmployee(url): Observable<any> {
     return this.http.delete<Employee[]>(this.baseUrl + url, this.httpOptions)
       .pipe(
-        tap(_ => this.log('deleted')),
+        tap(() => {
+          this.log('deleted');
+          this.dispatcher.emit('getEmployees');
+        }),
         catchError(this.handleError<Employee[]>('deleteEmployee', []))
       );
   }
 
-  private handleError<T> (operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
+      console.error(error);
 
-      // TODO: better job of transforming error for user consumption
       this.log(`${operation} failed: ${error.message}`);
 
-      // Let the app keep running by returning an empty result.
       return of(result as T);
     };
   }
 
   private log(message: string) {
-    this.messageService.add(`MsgService: ${message}`);
+    this.messageService.add(`${message}`);
   }
 }
