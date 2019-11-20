@@ -10,13 +10,7 @@ import { NewEmployeeComponent } from './new-employee/new-employee.component';
 import { FormsModule } from '@angular/forms';
 import { MessagesComponent } from './messages/messages.component';
 import { StatsComponent } from './stats/stats.component';
-import { GraphComponent } from './graph/graph.component';
 
-import { FusionChartsModule } from 'angular-fusioncharts';
-import * as FusionCharts from 'fusioncharts';
-import * as Charts from 'fusioncharts/fusioncharts.charts';
-
-FusionChartsModule.fcRoot(FusionCharts, Charts);
 
 @NgModule({
   declarations: [
@@ -26,14 +20,12 @@ FusionChartsModule.fcRoot(FusionCharts, Charts);
     NewEmployeeComponent,
     MessagesComponent,
     StatsComponent,
-    GraphComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    FusionChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

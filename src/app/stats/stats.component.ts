@@ -18,13 +18,10 @@ export class StatsComponent implements OnInit {
   constructor(private employeeService: EmployeeService) { }
 
   get statKeys() {
-    if (Object.entries(this.statistics) && Object.entries(this.statistics).length){
+    if (Object.entries(this.statistics) && Object.entries(this.statistics).length) {
       return Object.keys(this.statistics[0]);
-    }
-
-    else return []
+    } else return []
   }
-
 
   getStats(type): void {
     this.employeeService.getStatistics(this.getStatsApi[type])
