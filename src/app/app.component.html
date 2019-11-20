@@ -1,9 +1,9 @@
 <h1>Employee management</h1>
 
 <nav>
-  <a routerLink="/list">All employees</a>
-  <a routerLink="/new-employee">Add new employee</a>
-  <a routerLink="/stats">Stats</a>
+  <a routerLink="/list" [routerLinkActive]="'active-route'">All employees</a>
+  <a routerLink="/new-employee" [routerLinkActive]="'active-route'">Add new employee</a>
+  <a routerLink="/stats" [routerLinkActive]="'active-route'">Stats</a>
 </nav>
 <router-outlet></router-outlet>
 <app-messages></app-messages>
