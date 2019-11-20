@@ -15,7 +15,7 @@ export class MessagesComponent implements OnInit {
   get msgList ():string[] {
     let list = this.messageService.messages;
     if (list.length > 3){
-      return list.splice(-3);
+      return list.splice(0, list.length-3);
     }
 
     else {

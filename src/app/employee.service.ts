@@ -30,7 +30,7 @@ export class EmployeeService {
   getEmployees(url): Observable<Employee[]> {
     return this.http.get<Employee[]>(this.baseUrl + url)
       .pipe(
-        tap(() => this.log('got employees')),
+        tap(() => this.log('Fetch employees')),
         catchError(this.handleError<Employee[]>('getEmployee', []))
       );
   };
@@ -47,7 +47,7 @@ export class EmployeeService {
     return this.http.post<Employee[]>(this.baseUrl + url, employee, this.httpOptions)
       .pipe(
         tap(() => this.log(`${employee['position']}, ${employee['name']}, created`)),
-        catchError(this.handleError<Employee[]>('createEmployee', []))
+        catchError(this.handleError<Employee[]>('Employee Created', []))
       );
   };
 
@@ -58,7 +58,7 @@ export class EmployeeService {
           this.log('deleted');
           this.dispatcher.emit('getEmployees');
         }),
-        catchError(this.handleError<Employee[]>('deleteEmployee', []))
+        catchError(this.handleError<Employee[]>('Employee deleted', []))
       );
   }
 

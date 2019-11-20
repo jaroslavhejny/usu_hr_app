@@ -2,3 +2,14 @@
   margin: 2em;
 }
 
+.employee {
+  display: inline-flex;
+}
+
+.employee-table > tr:first-child{
+  background-color: rgba(220, 220, 220, 1);
+}
+
+.delete-btn{
+  border: none;
+}

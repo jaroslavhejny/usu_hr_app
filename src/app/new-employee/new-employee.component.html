@@ -1,5 +1,5 @@
 <h1>Create new employee</h1>
-<table>
+<table class="table new-employee-table">
   <tr>
     <td>
       Name:
@@ -27,5 +27,8 @@
     </td>
   </tr>
 </table>
-
-<button class="button" (click)="createNew()" [disabled]="!canSend" [className]="canSend ? 'green' : 'red'">Submit</button>
+<div class="text-center">
+  <button class="btn new-employee-button" (click)="createNew()" [disabled]="!canSend" [ngClass]="canSend ? 'btn-success' : 'btn-danger'">
+    Submit
+  </button>
+</div>

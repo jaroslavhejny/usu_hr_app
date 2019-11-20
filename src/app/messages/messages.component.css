@@ -2,7 +2,7 @@
   position: fixed;
   bottom: 0;
   right: 0;
-  width: 25%;
+  width: 15%;
 }
 
 .msg {
@@ -22,4 +22,10 @@
 
 p {
   margin-bottom: 0.2em;
+}
+
+.delete-btn {
+  height: 20px;
+  line-height: 100%;
+  border-radius: 0 5px 5px 0;
 }

@@ -1,7 +1,26 @@
+h1 {
+  text-align: center;
+}
+
 .green {
   background: rgb(196, 255, 196);
 }
 
 .red {
   background: rgb(255, 185, 185);
+}
+
+.new-employee-table {
+  margin-left: auto;
+  margin-right: auto;
+  width: unset;
+}
+
+.new-employee-table > tr > td > select,
+.new-employee-table > tr > td > input {
+  width: 100%;
+}
+
+.new-employee-button {
+  margin-top: 1em;
 }
